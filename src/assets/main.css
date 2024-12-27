@@ -1,0 +1,8 @@
+@import './base.css';
+
+
+.logo-brand{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+}
