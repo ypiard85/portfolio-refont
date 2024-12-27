@@ -4,6 +4,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import {createBootstrap} from 'bootstrap-vue-next'
 import router from './router'
+import { createPinia } from 'pinia'
+
 import { createI18n } from 'vue-i18n';
 import translation from "@/libs/translation.js"
 
@@ -14,7 +16,9 @@ const app = createApp(App)
 
 const i18n = createI18n(translation);
 
+const pinia = createPinia()
 app.use(createBootstrap()) // Important
 app.use(router)
+app.use(pinia)
 app.use(i18n);
 app.mount('#app')

@@ -2,9 +2,12 @@
 
 import IconFrenchFlag from "@/components/icons/IconFrenchFlag.vue";
 import IconEnglishFlag from "@/components/icons/IconEnglishFlag.vue";
+import {useApplicationStore} from "@/store/applicationStore.ts";
+
+const application = useApplicationStore()
 
 const onChangeLang = ($event) => {
-  localStorage.setItem("lang", $event.target.value);
+  application.updateLanguage($event.target.value);
 }
 
 </script>

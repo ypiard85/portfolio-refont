@@ -1,21 +1,21 @@
 <script setup>
 import hello from "@/components/sections/homeSection/_Hello.vue";
 import AvailibleStatus from "@/components/texts/AvailibleStatus.vue";
-import frenchResume from "@/assets/resumes/cv_fr_Yoann_PIARD.pdf"
-import englishResume from "@/assets/resumes/resume_english_Yoann_PIARD.pdf"
-import {computed} from "vue";
+import frenchResume from "@/assets/resumes/CDI_YoannPIARD.pdf"
+import englishResume from "@/assets/resumes/RESUME_YoannPIARD.pdf"
+import {useApplicationStore} from "@/store/applicationStore.ts";
+import {computed, watch} from "vue";
 
-const getResumeByLanguage = computed(() => {
-  const lang = localStorage.getItem("lang");
+const store = useApplicationStore();
 
-  if (lang == 'fr') {
+const resumeToLoad = computed(()=>{
+  if(store.language == 'fr'){
     return frenchResume
   }
-  if (lang == 'en') {
+  if(store.language == 'en'){
     return englishResume
   }
   return frenchResume
-
 })
 
 </script>
@@ -116,7 +116,7 @@ const getResumeByLanguage = computed(() => {
       </div>
     </div>
 
-    <a :href="getResumeByLanguage" target="_blank"
+    <a :href="resumeToLoad" target="_blank"
        class="mx-auto download-button fw-semibold text-secondary text-uppercase d-block w-fit my-5 border px-5 py-3 rounded">
       {{ $t('about.downloadResume') }}
     </a>
