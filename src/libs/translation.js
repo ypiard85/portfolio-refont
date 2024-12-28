@@ -10,7 +10,7 @@ import {
 } from "@/libs/translateText.js";
 
 export default {
-    locale: localStorage.getItem("lang"),
+    locale: localStorage.getItem("lang") || 'fr',
     fallbackLocale: 'fr',
     messages: {
         fr: {
